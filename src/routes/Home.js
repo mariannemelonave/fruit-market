@@ -1,12 +1,7 @@
-
-
 import React from "react";
 import Card from "../components/Card";
-import list from "../Constants/list"
+import list from "../constants/list"
 import { ContainerFruits} from "../Styled";
-
-
-
 
 function Home() {
   return (

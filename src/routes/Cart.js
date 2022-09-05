@@ -4,9 +4,7 @@ import {  Image, Modal, ModalBody, ModalCloseButton, ModalContent,
 import { CardBuy } from '../components/CardBuy';
 import { Button } from '@chakra-ui/react';
 import { ContainerFruits , Paragraf, TitleSecond, Center} from "../Styled";
-import vazio from '../image/vazio.png'
-
-
+import vazio from '../image/carrinhovazio.png'
 
 const Cart = ({name}) => {
   
@@ -30,7 +28,6 @@ const Cart = ({name}) => {
          return acc } , 0 ))
     }
     creatList();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[upDateItem])
 
   useEffect (() => {
@@ -44,63 +41,46 @@ const Cart = ({name}) => {
       
  console.log(finalPayment,listCart)
    if (localStorage.length < 1) return <div>
-       { alertVisible? <Alert
-  status='success'
-  variant='subtle'
-  flexDirection='column'
-  alignItems='center'
-  justify='center'
-  textAlign='center'
-  height='150px'
-  
- 
->
+       { alertVisible? <Alert  status='success'  variant='subtle'  flexDirection='column'  alignItems='center'  justify='center'  textAlign='center'  height='150px'>
   
   <AlertIcon boxSize='40px' mr={0} />
+
   <AlertTitle mt={4} mb={1} fontSize='lg'>
     Pagamento realizado com sucesso!
   </AlertTitle>
+
   <AlertDescription maxWidth='sm'>
     Agradecemos a preferência!
   </AlertDescription>
+
 </Alert>:""}
 
 <center> <TitleSecond>Não há compras na sua lista</TitleSecond> <Image  marginBottom="30px" height={"150px"} src= {vazio}   alt=''  /></center></div>;  
 
  return (
-  <Fragment>
-
-         
-    
+  <Fragment>   
          <TitleSecond pt="60px" fontsize="30px">O valor total da sua compra é de R$ {finalPayment} </TitleSecond>
          
          <Paragraf>Confira os itens adicionados antes de finalizar o pedido:</Paragraf>
          
          <ContainerFruits>
           
-         {listCart.map((el) => <CardBuy
-          image={el.image} 
-          name={el.name} 
-          price={el.price} 
-         quantity={el.quantity} 
-         finalprice={el.finalprice} 
-         setupDateItem={setupDateItem} />)}
+         {listCart.map((el) => <CardBuy image={el.image} name={el.name} price={el.price} quantity={el.quantity} finalprice={el.finalprice} setupDateItem={setupDateItem} />)}
          
          </ContainerFruits>
          <Center>
-         <Button colorScheme='blue' onClick={onOpen} > Finalizar Compra</Button>
+         <Button colorScheme='blue' onClick={onOpen}>Finalizar Compra</Button>
          </Center>
          
-          <Modal isOpen={isOpen} onClose={onClose} size={'xs'} >
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Forma de pagamento </ModalHeader>
-                    <ModalHeader textAlign="center">Valor total é R${finalPayment},00 </ModalHeader>
-
-                    <ModalCloseButton />
-                    <ModalBody display={'flex'} alignItems='center' justifyContent={'space-around'}margin="0" gap={10}>
+  <Modal isOpen={isOpen} onClose={onClose} size={'xs'} >
+      <ModalOverlay />
+      <ModalContent>
+      <ModalHeader>Forma de pagamento</ModalHeader>
+      <ModalHeader textAlign="center">Valor total é R${finalPayment},00 </ModalHeader>
+      <ModalCloseButton />
+      <ModalBody display={'flex'} alignItems='center' justifyContent={'space-around'}margin="0" gap={10}>
                      
-                     <Box
+<Box
   as='button'
   height='60px'
   lineHeight='1.2'
@@ -155,24 +135,22 @@ const Cart = ({name}) => {
                     
 
                    
-                    </ModalBody>
-                    <ModalFooter>
-                    <Center>
-                           <Button colorScheme='blue'  size='md' onClick={() => {
-                        onClose()
-                        clearOnLS (name)
-                        setAlertVisible (true) 
-
-                       
-                    }}>Confirmar</Button> </Center>
-                   
-
-                    </ModalFooter>
-                </ModalContent>
-            </Modal>
+  </ModalBody>
+    <ModalFooter>
+      <Center>
+        <Button colorScheme='blue'  size='md' onClick={() => {
+              onClose()
+              clearOnLS (name)
+              setAlertVisible (true)                       
+              }}>Confirmar
+        </Button> 
+      </Center>
+    </ModalFooter>
+    </ModalContent>
+ </Modal>
 
 
-        </Fragment>
+</Fragment>
         
   )
 };

@@ -1,4 +1,3 @@
-
 import {
   NumberInput,
   NumberInputField,
@@ -8,9 +7,6 @@ import {
 } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/react'
 import { CardFruit, Title } from '../Styled';
-
-
-
 
 export const CardBuy = ({name, image, price , quantity, setupDateItem}) => {
 
@@ -23,9 +19,6 @@ const change = (e)=> {
   saveOnLS( name, JSON.stringify({image, name, price, finalPrice: (+e*price), quantity:e}))
 
   console.log(price,+e);}
-  
-
-
 
 return (
   
@@ -36,7 +29,7 @@ return (
               <Flex flexDirection={'row'}> <Flex margin={'10px'} boxSize='120px'><img src= {image} alt=''/></Flex>
                  <Flex flexDirection={'column'} margin={'10px'} gap="6px" alignItems='center'>
        
-        <Title>{name}</Title>  R${price}/kg.
+        <Title>{name}</Title>  R${price}/un.
            
             <NumberInput  onChange={(e) => { 
               change(e) }} defaultValue={quantity}  width="80px"  min={1} max={20} >

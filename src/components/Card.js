@@ -1,17 +1,12 @@
-
-
 import React, { Fragment, useState } from 'react';
 import {
 NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, 
 Flex, Button,Badge } from '@chakra-ui/react'
-import { useToast } from '@chakra-ui/react'
-
- 
- 
+import { useToast } from '@chakra-ui/react' 
 import { CardFruit, Title } from '../Styled';
 
 
-export const Card = ({name, image,price}) => {
+export const Card = ({name,image,price}) => {
   
 const [ quantity, setQuantity] = useState ("0")
 const [ finalPrice, setPrice] = useState (`R$ ${price}`)
@@ -34,26 +29,17 @@ const saveOnLS =(fruitName, object) => {
       isClosable: true,
     })
   }
-
-
-
 }
-
 
   return (
   <Fragment>
 
      <CardFruit>
-     
-     
       <Flex  flexDirection={'column'} alignItems={'center'} border={'1px solid black'} borderRadius='8px' justifyContent={'space-around'}
             padding={'5px'} margin={'10px'}  width={'200px'} height={'200px'} minWidth='max-content'> 
        
-       <Flex flexDirection={'row'}> 
-       
-       <Flex margin={'10px'} boxSize='120px'><img src= {image} alt=''/></Flex>
-       
-        
+       <Flex flexDirection={'row'}>        
+       <Flex margin={'10px'} boxSize='120px'><img src= {image} alt=''/></Flex>         
         <Flex flexDirection={'column'} margin={'10px'} gap="6px" alignItems='center'>
         <Title>{name}</Title>  R${price}/kg
         <Badge variant='solid' colorScheme='green'>Disponível</Badge>

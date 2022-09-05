@@ -9,7 +9,7 @@ function Layout( ) {
             <Stack pt='30px' pb='10px' color={'white'}  >
                 <Flex as={UnorderedList} justifyContent='space-around' marginBottom="30px">
                     <ListItem listStyleType={'none'}><Button as={ReachLink} to='/' colorScheme='blue' variant='solid' height={'fit-content'} paddingTop={1} paddingBottom={1}>Home </Button></ListItem>
-                    <ListItem listStyleType={'none'}><Button as={ReachLink} to='/cart' colorScheme='orange' variant='solid' height={'fit-content'} paddingTop={1} paddingBottom={1}>Carrinho  </Button></ListItem>
+                    <ListItem listStyleType={'none'}><Button as={ReachLink} to='/cart' colorScheme='blue' variant='solid' height={'fit-content'} paddingTop={1} paddingBottom={1}>Carrinho  </Button></ListItem>
                 </Flex>
             </Stack>
             <Outlet />
